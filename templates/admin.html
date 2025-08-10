@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="admin">
+  <div class="container">
+    <h1>Заявки</h1>
+    <a class="btn" href="/admin/export.csv">Экспорт CSV</a>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th><th>Имя</th><th>Телефон</th><th>Мессенджер</th><th>Бюджет</th><th>Локация</th><th>Даты</th><th>Комментарий</th><th>Создана</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for x in leads %}
+          <tr>
+            <td>{{ x.id }}</td>
+            <td>{{ x.name }}</td>
+            <td>{{ x.phone }}</td>
+            <td>{{ x.messenger or '' }}</td>
+            <td>{{ x.budget or '' }}</td>
+            <td>{{ x.location or '' }}</td>
+            <td>{{ x.dates or '' }}</td>
+            <td>{{ x.message or '' }}</td>
+            <td>{{ x.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <h1 style="margin-top:32px">Обратная связь</h1>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th><th>Имя</th><th>Контакт</th><th>Сообщение</th><th>Создано</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for x in feedback %}
+          <tr>
+            <td>{{ x.id }}</ }}</td>
+            <td>{{ x.name }}</td>
+            <td>{{ x.contact or '' }}</td>
+            <td>{{ x.message }}</td>
+            <td>{{ x.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="hero">
+  <div class="container grid-2">
+    <div>
+      <h1>ИИ-ассистент аренды домов</h1>
+      <p class="lead">Мгновенный ответ, автоматическая сделка в CRM, прозрачная аналитика.</p>
+      <ul class="bullets">
+        <li>Ответ ≤ 10 секунд</li>
+        <li>100% заявок фиксируются в CRM</li>
+        <li>+20% конверсии в просмотры</li>
+      </ul>
+      <a href="#lead" class="btn btn-primary">Оставить заявку</a>
+    </div>
+    <div class="illustration">
+      <img src="/static/images/hero.png" alt="Иллюстрация проекта" />
+    </div>
+  </div>
+</section>
+
+<section id="features" class="features">
+  <div class="container grid-3">
+    <div class="card">
+      <img src="/static/images/speed.png" alt="Скорость" />
+      <h3>Скорость</h3>
+      <p>Ответ бота в течение секунд — клиенты не ждут.</p>
+    </div>
+    <div class="card">
+      <img src="/static/images/crm.png" alt="CRM" />
+      <h3>CRM</h3>
+      <p>Все заявки автоматически попадают в AmoCRM.</p>
+    </div>
+    <div class="card">
+      <img src="/static/images/growth.png" alt="Рост" />
+      <h3>Рост</h3>
+      <p>Увеличение конверсии и прозрачная аналитика.</p>
+    </div>
+  </div>
+</section>
+
+<section id="lead" class="lead-section">
+  <div class="container">
+    <h2>Оставьте заявку</h2>
+    <form id="leadForm" class="form">
+      <div class="row gap">
+        <div class="field">
+          <label>Ваше имя*</label>
+          <input type="text" name="name" required minlength="2" />
+        </div>
+        <div class="field">
+          <label>Телефон*</label>
+          <input type="tel" name="phone" required placeholder="+7..." />
+        </div>
+      </div>
+      <div class="row gap">
+        <div class="field">
+          <label>Мессенджер</label>
+          <select name="messenger">
+            <option value="">—</option>
+            <option>whatsapp</option>
+            <option>telegram</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Бюджет</label>
+          <input type="text" name="budget" placeholder="до 80 000 ₽" />
+        </div>
+      </div>
+      <div class="row gap">
+        <div class="field full">
+          <label>Локация / Даты</label>
+          <input type="text" name="location" placeholder="центр, 2 комнаты" />
+        </div>
+      </div>
+      <div class="row gap">
+        <div class="field full">
+          <label>Комментарий</label>
+          <textarea name="message" rows="4" placeholder="Расскажите о вашем запросе"></textarea>
+        </div>
+      </div>
+      <div class="row center-y">
+        <button class="btn btn-primary" type="submit">Отправить</button>
+        <span class="muted">Нажимая «Отправить», вы соглашаетесь с обработкой данных</span>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="feedback-section">
+  <div class="container">
+    <h2>Есть вопрос?</h2>
+    <form id="feedbackForm" class="form">
+      <div class="row gap">
+        <div class="field">
+          <label>Имя*</label>
+          <input type="text" name="name" required minlength="2" />
+        </div>
+        <div class="field">
+          <label>Контакт</label>
+          <input type="text" name="contact" placeholder="Телефон или e-mail" />
+        </div>
+      </div>
+      <div class="row gap">
+        <div class="field full">
+          <label>Сообщение*</label>
+          <textarea name="message" rows="4" required></textarea>
+        </div>
+      </div>
+      <div class="row center-y">
+        <button class="btn" type="submit">Отправить вопрос</button>
+      </div>
+    </form>
+  </div>
+</section>
+{% endblock %}
