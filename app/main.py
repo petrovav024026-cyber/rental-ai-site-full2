@@ -21,6 +21,13 @@ app = FastAPI(title=APP_TITLE)
 # Static & templates
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
+from datetime import datetime
+
+# Кастомный фильтр: позволяет использовать {{ '%Y' | strftime }} в шаблоне
+def _strftime(fmt: str) -> str:
+    return datetime.utcnow().strftime(fmt)
+
+templates.env.filters["strftime"] = _strftime
 
 # DB
 Base.metadata.create_all(bind=engine)
