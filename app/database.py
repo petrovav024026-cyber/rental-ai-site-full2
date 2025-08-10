@@ -1,5 +1,10 @@
+# app/database.py
+import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, DeclarativeBase
+
+# гарантируем, что папка для SQLite существует на старте
+os.makedirs("data", exist_ok=True)
 
 DATABASE_URL = "sqlite:///./data/app.db"
 
